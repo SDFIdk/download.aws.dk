@@ -1,0 +1,49 @@
+extends layout
+
+block content
+  div.container
+    h1 Download af vejnavne
+    div.page-header
+      p.lead Download af kommuners og Danmarks vejnavne.
+
+  div.container
+    div.row
+      div.col-md-3
+        ul#adresse.nav.nav-pills.nav-stacked.affix
+          li <a href='#kommune'>Kommunens vejnavne</a>
+          li <a href='#danmark'>Danmarks vejnavne</a>
+
+      div.col-md-9
+        h2#kommune Kommunens vejnavne
+        div.table-responsive
+          table.table.table-striped
+            thead
+              tr
+                th Kommune
+                th CSV
+                th JSON
+            tbody
+              each kommune in kommuner
+                tr
+                  th= kommune.kode + " " + kommune.navn
+                  th <a href='#{url}?format=csv&kommunekode=#{kommune.kode}'>download</a>
+                  th <a href='#{url}?format=json&kommunekode=#{kommune.kode}'>download</a>
+
+
+        h2#danmark Danmarks vejnavne
+        div.table-responsive
+          table.table.table-striped
+            thead
+              tr
+                th CSV
+                th JSON
+            tbody
+              tr
+                th <a href='#{url}?format=csv'>download</a>
+                th <a href='#{url}?format=json'>download</a>
+
+block append scripts
+  script(type='text/javascript').
+    $('#topbar li').removeClass('active');
+    var a= $("#topbar li a[href='vejnavne']")[0];
+    var li= $(a).parent().addClass('active');

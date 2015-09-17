@@ -1,0 +1,23 @@
+extends layout
+
+block content
+	div.container
+		h1 Om AWS 4 Download
+		div.page-header
+			p.lead AWS Suitens version 4 download.
+
+	div.container
+		div.row
+			div.col-md-3
+				ul#adresse.nav.nav-pills.nav-stacked.affix
+					li <a href='#licens'>Brugsbetingelser</a>
+
+
+			div.col-md-9
+				p Formålet med AWS 4 Download
+
+block append scripts
+	script(type='text/javascript').
+		$('#topbar li').removeClass('active');
+		var a= $("#topbar li a[href='om']")[0];
+		var li= $(a).parent().addClass('active');S

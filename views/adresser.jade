@@ -1,0 +1,70 @@
+extends layout
+
+block content
+  div.container
+    h1 Download af adresser
+    div.page-header
+      p.lead Download af kommuners, regioners og Danmarks adresser.
+
+  div.container
+    div.row
+      div.col-md-3
+        ul#adresse.nav.nav-pills.nav-stacked.affix
+          li <a href='#kommune'>Kommunens adresser</a>
+          li <a href='#region'>Regionens adresser</a>
+          li <a href='#danmark'>Danmarks adresser</a>
+
+      div.col-md-9
+        h2#kommune Kommunens adresser
+        div.table-responsive
+          table.table.table-striped
+            thead
+              tr
+                th Kommune
+                th CSV
+                th GeoJSON
+                th JSON
+            tbody
+              each kommune in kommuner
+                tr
+                  th= kommune.kode + " " + kommune.navn
+                  th <a href='#{url}?format=csv&kommunekode=#{kommune.kode}'>download</a>
+                  th <a href='#{url}?format=geojson&kommunekode=#{kommune.kode}'>download</a>
+                  th <a href='#{url}?format=json&kommunekode=#{kommune.kode}'>download</a>
+
+        h2#region Regionens adresser
+        div.table-responsive
+          table.table.table-striped
+            thead
+              tr
+                th Region
+                th CSV
+                th GeoJSON
+                th JSON
+            tbody
+              each region in regioner
+                tr
+                  th= region.kode + " " + region.navn
+                  th <a href='#{url}?format=csv&regionskode=#{region.kode}'>download</a>
+                  th <a href='#{url}?format=geojson&regionskode=#{region.kode}'>download</a>
+                  th <a href='#{url}?format=json&regionskode=#{region.kode}'>download</a>
+
+        h2#danmark Danmarks adresser
+        div.table-responsive
+          table.table.table-striped
+            thead
+              tr
+                th CSV
+                th GeoJSON
+                th JSON
+            tbody
+              tr
+                th <a href='#{url}?format=csv'>download</a>
+                th <a href='#{url}?format=geojson'>download</a>
+                th <a href='#{url}?format=json'>download</a>
+
+block append scripts
+  script(type='text/javascript').
+    $('#topbar li').removeClass('active');
+    var a= $("#topbar li a[href='adresser']")[0];
+    var li= $(a).parent().addClass('active');

@@ -1,0 +1,48 @@
+extends layout
+
+block content
+  div.container
+    h1 Download af  supplerende bynavne
+    div.page-header
+      p.lead Download af kommuners og Danmarks supplerende bynavne.
+
+  div.container
+    div.row
+      div.col-md-3
+        ul#adresse.nav.nav-pills.nav-stacked.affix
+          li <a href='#kommune'>Kommunens supplerende bynavne</a>
+          li <a href='#danmark'>Danmarks supplerende bynavne</a>
+
+      div.col-md-9
+        h2#kommune Kommunens supplerende bynavne
+        div.table-responsive
+          table.table.table-striped
+            thead
+              tr
+                th Kommune
+                th CSV
+                th JSON
+            tbody
+              each kommune in kommuner
+                tr
+                  th= kommune.kode + " " + kommune.navn
+                  th <a href='#{url}?format=csv&kommunekode=#{kommune.kode}'>download</a>
+                  th <a href='#{url}?format=json&kommunekode=#{kommune.kode}'>download</a>
+
+        h2#danmark Danmarks supplerende bynavne
+        div.table-responsive
+          table.table.table-striped
+            thead
+              tr
+                th CSV
+                th JSON
+            tbody
+              tr
+                th <a href='#{url}?format=csv'>download</a>
+                th <a href='#{url}?format=json'>download</a>
+
+block append scripts
+  script(type='text/javascript').
+    $('#topbar li').removeClass('active');
+    var a= $("#topbar li a[href='supplerendebynavne']")[0];
+    var li= $(a).parent().addClass('active');

@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  div.container
+    h1 Download af postnumre
+    div.page-header
+      p.lead Download af Danmarks postnumre.
+
+  div.container
+    div.row
+
+      div.col-md-9
+        h2 Danmarks postnumre
+        div.table-responsive
+          table.table.table-striped
+            thead
+              tr
+                th CSV
+                th GeoJSON
+                th JSON
+            tbody
+              tr
+                th <a href='#{url}?format=csv'>download</a>
+                th <a href='#{url}?format=geojson'>download</a>
+                th <a href='#{url}?format=json'>download</a>
+
+block append scripts
+  script(type='text/javascript').
+    $('#topbar li').removeClass('active');
+    var a= $("#topbar li a[href='postnumre']")[0];
+    var li= $(a).parent().addClass('active');

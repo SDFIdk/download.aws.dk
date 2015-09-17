@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  div.container
+    h1 AWS 4 Download
+    div.page-header
+      p.lead AWS Suiten version 4 Download
+
+  div.container
+    div.row
+
+      div.col-md-12
+        h2 Hvad er AWS 4 Download?
+        p AWS 4 Download er et web site, hvor du på en enkel måde kan downloade hyppigt anvendte udsnit af Danmarks adresser, adgangsadresser, vejnavne, supplerende bynavne samt postnumre.
+        p AWS 4 Download, som er en del <a href='http://aws.dk'>AWS Suiten</a>, er baseret på <a href='http://dawa.aws.dk'>DAWA</a>. DAWA giver mulighed for at specificere i detaljer, hvilket dataudsnit du er interesseret i. Hvis det dataudsnit, som du er interesseret i, ikke er udstillet her på AWS 4 Download, er DAWA derfor stedet at besøge. DAWA er også stedet at besøge, hvis du ønsker en mere uddybende dokumentation af data.
+
+        h2 Hvordan bruges AWS 4 Download?
+        p Du vælger hvilken type data du ønsker at downloade i menuen øverst på siden. Her kan du f.eks. vælge adgangsadresser. Adgangsadressesiden giver dig mulighed for at vælge en enkelt kommunes, en enkelt regions eller hele Danmarks adgangsadresser. Der er tre forskellige formater du kan vælge i mellem: 
+
+        ul
+          li CSV, Kommasepareret format, som er velegnet til import til regnearksprogrammer, som f.eks. Excel, eller GIS-programmer.
+          li GeoJSON, som er velegnet til import i programmer, hvor data skal præsenteres grafisk.
+          li JSON, som er velegnet til import i egenudviklede programmer. 
+
+        p Klik på det download-link, som udpeger det udsnit af data, samt det format du ønsker. Det kan være en fordel at højreklikke på linket, vælge <i>Gem som</i> og indtaste det navn på filen, du ønsker data gemt i.
+
+        h2 Import af CSV-fil i Excel 
+        p Hvis du ønsker at importere en downloadet CSV-fil i Excel, kan det gøres på følgende måde:
+
+        ul
+          li I Data-menuen under <i>Hent eksterne data</i> vælg <i>Fra tekst</i> 
+          li Vælg den downloadede CSV-fil.
+          li Vælg Unicode (UTF-8) under Filoprindelse. Tryk Næste
+          li Vælg Komma under Afgrænsere. Tryk udfør.
+
+
+block append scripts
+  script(type='text/javascript').
+    $('#topbar li').removeClass('active');
+    var a= $("#topbar li a[href='/']")[0];
+    var li= $(a).parent().addClass('active');
