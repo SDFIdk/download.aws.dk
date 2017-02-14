@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  div#content.container
+    h1 Vilkår for brug af danske offentlige data
+    p(class="text-right") 23. maj 2013
+    h3 Generel information
+    p Styrelsen for Dataforsyning og Effektivisering, herefter Myndigheden, som har de immaterielle rettigheder til Danmarks adresser udbudt gennem AWS Suiten (herefter data), giver på nedenstående vilkår brugsret til data.
+    p Vilkårene accepteres ved enhver brug af data. Vilkårene reguleres af dansk ret.
+
+    h3 Brugsret
+    p Myndigheden giver en verdensomspændende, gratis, ikke-eksklusiv, og i øvrigt ubegrænset brugsret til data, som frit bl.a. kan:
+    ul
+    li kopieres, distribueres og offentliggøres,
+    li ændres og sammensættes med andet materiale
+    li bruges kommercielt og ikke-kommercielt,
+
+    h3 Vilkår
+    p Data må ikke bruges på en måde, så det kan fremstå som om, at myndigheden godkender, støtter, anbefaler eller markedsfører brugeren, brugerens produkter eller tjenester.
+    p Det skal sikres, at brug af data er i overensstemmelse med dansk ret.
+
+    h3 Kildeangivelse
+    p Ved brug af data kan følgende angives: ”Indeholder oplysninger fra Styrelsen for Dataforsyning og Effektiviserings Adresse Web Services (AWS Suiten).”
+
+    h3 Myndighedens rettigheder og ansvar
+    p Data stilles til rådighed, som de er, og myndigheden har intet ansvar for hverken indhold, oprindelse, fejl og mangler eller nogen form for skade, der måtte følge af brug af data. 
+    p Myndigheden garanterer ikke den fortsatte tilrådighedsstillelse af data, og kan til enhver tid ændre brugsretten til data og vilkårene herfor. 
+    
+
+block append scripts
+  script(type='text/javascript').
+    $('#topbar li').removeClass('active');
+    var a= $("#topbar li a[href='licens']")[0];
+    var li= $(a).parent().addClass('active');

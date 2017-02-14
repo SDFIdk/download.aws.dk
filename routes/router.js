@@ -8,6 +8,10 @@ router.get('/', function(req, res) {
   res.render('home', { title: 'Express' });
 });
 
+router.get('/licens', function(req, res) {
+  res.render('licens');
+});
+
 router.get('/adresser', function(req, res) {
 	async.parallel([
 		function(callback) {
