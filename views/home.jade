@@ -36,6 +36,8 @@ block content
 
 block append scripts
   script(type='text/javascript').
-    $('#topbar li').removeClass('active');
-    var a= $("#topbar li a[href='/']")[0];
-    var li= $(a).parent().addClass('active');
+    const topbarliEls = document.querySelectorAll('#topbar li')
+    const linkEl = document.querySelector('#topbar li a[href="/"]')
+    topbarliEls.forEach((li) => { li.classList.remove('active') })
+    linkEl.parentElement.classList.add('active')
+    
