@@ -16,8 +16,7 @@ block content
 			div.col-md-9
 				p Formålet med AWS 4 Download
 
-block append scripts
-	script(type='text/javascript').
+	script
 		const topbarliEls = document.querySelectorAll('#topbar li')
     const linkEl = document.querySelector('#topbar li a[href="om"]')
     topbarliEls.forEach((li) => { li.classList.remove('active') })

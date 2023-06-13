@@ -42,10 +42,8 @@ block content
                 th <a href='#{url}?format=csv'>download</a>
                 th <a href='#{url}?format=json'>download</a>
 
-block append scripts
-  script(type='text/javascript').
+  script
     const topbarliEls = document.querySelectorAll('#topbar li')
     const linkEl = document.querySelector('#topbar li a[href="vejnavne"]')
     topbarliEls.forEach((li) => { li.classList.remove('active') })
     linkEl.parentElement.classList.add('active')
-    

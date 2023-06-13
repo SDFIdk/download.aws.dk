@@ -63,8 +63,7 @@ block content
                 th <a href='#{url}?format=geojson'>download</a>
                 th <a href='#{url}?format=json'>download</a>
 
-block append scripts
-  script(type='text/javascript').
+  script
     const topbarliEls = document.querySelectorAll('#topbar li')
     const linkEl = document.querySelector('#topbar li a[href="adgangsadresser"]')
     topbarliEls.forEach((li) => { li.classList.remove('active') })

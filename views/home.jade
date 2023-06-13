@@ -34,8 +34,7 @@ block content
           li Vælg Komma under Afgrænsere. Tryk udfør.
 
 
-block append scripts
-  script(type='text/javascript').
+  script
     const topbarliEls = document.querySelectorAll('#topbar li')
     const linkEl = document.querySelector('#topbar li a[href="/"]')
     topbarliEls.forEach((li) => { li.classList.remove('active') })
